@@ -1,0 +1,59 @@
+﻿@page
+@model EjerciciosRazorPages.Pages.Programa3Model
+@{
+    ViewData["Title"] = "Programa 3";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="text-center mb-4">
+                <h1>Programa 3</h1>
+                <h2>Evaluar la expresion (ax + by)^n </h2>
+            </div>
+
+            <form method="post" class="bg-light p-4 rounded shadow-sm">
+                <div class="form-group">
+                    <label for="a">Ingrese a</label>
+                    <input required type="number" class="form-control" step="0.1" asp-for="a" />
+                </div>
+                <div class="form-group">
+                    <label for="b">Ingrese b</label>
+                    <input required type="number" class="form-control" step="0.1" asp-for="b" />
+                </div>
+                <div class="form-group">
+                    <label for="x">Ingrese x</label>
+                    <input required type="number" class="form-control" step="0.1" asp-for="x" />
+                </div>
+                <div class="form-group">
+                    <label for="y">Ingrese y</label>
+                    <input required type="number" class="form-control" step="0.1" asp-for="y" />
+                </div>
+                <div class="form-group">
+                    <label for="n">Ingrese n</label>
+                    <input required type="number" class="form-control" step="1" asp-for="n" />
+                </div>
+
+                <div class="text-center m-5">
+                    <button type="submit" class="btn btn-primary">Calcular</button>
+                </div>
+
+                @if (Model.ExpresionExpandida != null)
+                {
+                    <div class="mt-4">
+                        <div class="alert alert-info">
+                            <strong>Expansión de la expresión:</strong>
+                            <br />
+                            <!--Se usa html raw para mostar el contenido -->
+                            @Html.Raw(Model.ExpresionExpandida.ToString())
+                            <p>
+                                Suma de todos los términos: @Model.SumaTerminos
+                            </p>
+
+                        </div>
+                    </div>
+                }
+            </form>
+        </div>
+    </div>
+</div>

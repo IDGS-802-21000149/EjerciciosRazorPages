@@ -1,0 +1,60 @@
+﻿@page
+@model EjerciciosRazorPages.Pages.Programa4Model
+@{
+    ViewData["Title"] = "Programa 4";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="text-center mb-4">
+                <h1>Programa 4</h1>
+                <h2>Estadisticas en un arreglo</h2>
+
+                @if (Model.arreglo != null)
+                {
+                    <h3>@string.Join(", ", Model.arreglo)</h3>
+                }
+                else
+                {
+                    <p>El arreglo está vacío.</p>
+                }
+
+
+            </div>
+
+            <form method="post" class="bg-light p-4 rounded shadow-sm">
+                <div class="text-center m-5">
+                    <button type="submit" class="btn btn-primary">Calcular</button>
+                </div>
+
+                @if (Model.sumaTotal != null && Model.promedio != null && Model.moda != null && Model.mediana != null)
+                {
+                    <div class="mt-4">
+                        <div class="alert alert-info">
+                            <strong>La suma de todos los numeros del arreglo es: @Model.sumaTotal</strong>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <div class="alert alert-info">
+                            <strong>La media aritmetica del arreglo es: @Model.promedio</strong>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <div class="alert alert-info">
+                            <strong>La moda del arreglo es: @Model.moda</strong>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <div class="alert alert-info">
+                            <strong>La mediana del arreglo es: @Model.mediana</strong>
+                        </div>
+                    </div>
+                }
+            </form>
+        </div>
+    </div>
+</div>

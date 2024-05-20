@@ -1,0 +1,43 @@
+﻿@page
+@model EjerciciosRazorPages.Pages.Programa1Model
+@{
+    ViewData["Title"] = "Programa 1";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="text-center mb-4">
+                <h1>Programa 1</h1>
+                <h2>Calculadora de índice de masa corporal</h2>
+            </div>
+
+            <form method="post" class="bg-light p-4 rounded shadow-sm">
+                <div class="form-group">
+                    <label for="peso">Ingrese su peso en kilogramos</label>
+                    <input required type="number" class="form-control" step="0.1" asp-for="peso"  />
+                </div>
+                <div class="form-group">
+                    <label for="altura">Ingrese su altura en metros</label>
+                    <input required type="number" class="form-control" step="0.01" asp-for="altura"  />
+                </div>
+                <div class="text-center m-5">
+                    <button type="submit" class="btn btn-primary">Calcular</button>
+                </div>
+
+                @if (Model.resultado != 0 && Model.reporte != null)
+                {
+                    <div class="mt-4">
+                        <div class="alert alert-info">
+                            <strong>Su índice de masa corporal es de: @Model.resultado</strong>
+                        </div>
+                        <div class="alert alert-warning">
+                            <strong>Informe de peso:</strong>
+                            <p>Usted tiene: @Model.reporte</p>
+                        </div>
+                    </div>
+                }
+            </form>
+        </div>
+    </div>
+</div>

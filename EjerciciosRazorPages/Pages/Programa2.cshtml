@@ -1,0 +1,49 @@
+﻿@page
+@model EjerciciosRazorPages.Pages.Programa2Model
+@{
+    ViewData["Title"] = "Programa 2";
+}
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="text-center mb-4">
+                    <h1>Programa 2</h1>
+                    <h2>Codificador y decodificador de mensajes</h2>
+                </div>
+
+                <form method="post" class="bg-light p-4 rounded shadow-sm">
+                    <div class="form-group">
+                        <label>Ingrese el mensaje</label>
+                        <input required type="text" class="form-control"  asp-for="mensaje" />
+                    </div>
+                    <div class="form-group">
+                        <label>Ingrese un numero</label>
+                        <input required type="number" class="form-control" step="1" asp-for="N" />
+                    </div>
+                    <div class="text-center m-5">
+                        <button type="submit" class="btn btn-primary" name="action" value="codificar">Codificar</button>
+                    <button type="submit" class="btn btn-primary" name="action" value="decodificar">Decodificar</button>
+                    </div>
+                @if (Model.mensajeCodificado != null)
+                {
+                    <div class="mt-4">
+                        <div class="alert alert-info">
+                            <strong>El mensaje codificado sería: @Model.mensajeCodificado</strong>
+                        </div>
+                    </div>
+                }
+                else if (Model.mensajeDecodificado != null)
+                {
+                    <div class="mt-4">
+                        <div class="alert alert-info">
+                            <strong>El mensaje decodificado sería: @Model.mensajeDecodificado</strong>
+                        </div>
+                    </div>
+                }
+
+                </form>
+            </div>
+        </div>
+    </div>
+
